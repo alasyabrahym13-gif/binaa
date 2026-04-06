@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Engineers extends Model
+class Permission extends Model
 {
-    //
+    protected $primaryKey = 'id';
 }

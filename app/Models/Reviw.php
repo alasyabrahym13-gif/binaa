@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Review extends Model
+{
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'reviewer_id',
+        'reviewed_user_id',
+        'rating',
+        'title',
+        'comment',
+        'status',
+    ];
+
+    protected $casts = [
+        'rating' => 'integer',
+    ];
+
+    /**
+     * المستخدم الذي كتب التقييم
+     */
+    public function reviewer()
+    {
+        return $this->belongsTo(User::class, 'reviewer_id');
+    }
+
+    /**
+     * المستخدم الذي تم تقييمه
+     */
+    public function reviewedUser()
+    {
+        return $this->belongsTo(User::class, 'reviewed_user_id');
+    }
+}
