@@ -22,18 +22,11 @@ class Message extends Model
         'read_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-
-    /**
-     * المرسل
-     */
     public function sender()
     {
         return $this->belongsTo(User::class, 'sender_id');
     }
 
-    /**
-     * المستقبل
-     */
     public function receiver()
     {
         return $this->belongsTo(User::class, 'receiver_id');

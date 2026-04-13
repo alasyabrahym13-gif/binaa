@@ -22,18 +22,10 @@ class Review extends Model
     protected $casts = [
         'rating' => 'integer',
     ];
-
-    /**
-     * المستخدم الذي كتب التقييم
-     */
     public function reviewer()
     {
         return $this->belongsTo(User::class, 'reviewer_id');
     }
-
-    /**
-     * المستخدم الذي تم تقييمه
-     */
     public function reviewedUser()
     {
         return $this->belongsTo(User::class, 'reviewed_user_id');

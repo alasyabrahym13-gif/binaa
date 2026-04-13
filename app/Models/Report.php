@@ -18,18 +18,10 @@ class Report extends Model
         'details',
         'status',
     ];
-
-    /**
-     * المستخدم الذي قام بالتبليغ
-     */
     public function reporter()
     {
         return $this->belongsTo(User::class, 'reporter_id');
     }
-
-    /**
-     * المستخدم الذي تم التبليغ عنه
-     */
     public function reportedUser()
     {
         return $this->belongsTo(User::class, 'reported_user_id');
