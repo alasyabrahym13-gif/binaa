@@ -6,15 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('client_projects', function (Blueprint $table) {
-            // database/migrations/..._create_client_projects_table.php
             $table->id();
-            $table->timestamps();
              $table->foreignId('client_id')
           ->constrained('users')
           ->cascadeOnDelete();
@@ -26,15 +21,9 @@ return new class extends Migration
     $table->timestamp('started_at')->nullable();
     $table->timestamp('completed_at')->nullable();
     $table->softDeletes();
-    $table->timestamps();
-
-  
+    
 });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('client_projects');

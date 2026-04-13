@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
        Schema::create('project_materials', function (Blueprint $table) {
@@ -37,16 +34,11 @@ return new class extends Migration
     $table->foreign('updated_by')->references('id')->on('users')->nullOnDelete();
 
     $table->softDeletes();
-    $table->timestamps();
 
     $table->unique(['project_id', 'product_id']);
     $table->index(['project_id', 'status']);
 });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('project_materials');
