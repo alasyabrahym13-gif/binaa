@@ -9,8 +9,6 @@ class EngineerController extends Controller
 {
    public function store () 
    {
-      Engineer::create(
-        
-      )
+    
    }
 }
